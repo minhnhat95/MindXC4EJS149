@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div.container {
+  height: 100vh;
+  background-image: linear-gradient(to right, #47baa3, #7dd287);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+div.container div.khung {
+  display: grid;
+  width: 50rem;
+  height: fit-content;
+  background-color: white;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: auto;
+  align-self: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+div.container div.khung div.khung1 {
+  position: relative;
+}
+
+div.container div.khung div.khung1 div.menu {
+  width: 6.5rem;
+  height: 108%;
+  margin-left: 2.5rem;
+  background-color: #7dd287;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: -1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+div.container div.khung div.khung1 div.menu i:hover {
+  color: #3fb6a8;
+}
+
+div.container div.khung div.fillform {
+  padding: 3rem 0;
+}
+
+div.container div.khung div.fillform h3 {
+  color: #7dd287;
+  margin-bottom: 3rem;
+}
+
+div.container div.khung div.fillform form label {
+  color: black;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+div.container div.khung div.fillform form button {
+  width: 4rem;
+  color: #47baa3;
+  background-color: #f0f0f0;
+  border: none;
+}
+
+div.container div.khung div.fillform form hr {
+  border-color: #7dd287;
+  margin: 1rem 0px;
+}
+
+div.container div.khung div.fillform form input {
+  width: 100%;
+  border: none;
+}
+
+div.container div.khung div.fillform form input.nut {
+  width: 26rem;
+}
+
+div.container div.khung div.fillform form select {
+  width: 100%;
+  border: none;
+}
+
+div.container div.khung div.logo {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+div.container div.khung div.logo h1 {
+  font-weight: 900;
+  color: #3dbb3d;
+  height: fit-content;
+  width: fit-content;
+  margin: 2rem;
+}
+
+div.container div.khung div.logo button {
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #7dd287;
+  border: none;
+  transform: rotate(270deg);
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: -2rem;
+  bottom: 10rem;
+}
+
+div.container div.khung div.logo button:hover {
+  background-color: #47baa3;
+  transform: rotate(0deg);
+}
+
+div.container div.sigh {
+  color: black;
+  opacity: 0.6;
+  position: absolute;
+  bottom: 0px;
+  right: 4rem;
+}

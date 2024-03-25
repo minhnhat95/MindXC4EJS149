@@ -1,0 +1,18 @@
+@media only screen and (min-width: 769px) {
+  div.container {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  div.container {
+    font-size: 7px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  div.container {
+    font-size: 3.5px;
+  }
+  div.container div.khung div.khung1 div.menu {
+    width: 4rem;
+  }
+}
