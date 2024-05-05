@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CART</title>
+    <link rel="stylesheet" href="../Page5/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="groupHeaderMenu">
+        <div class="logoandsubPage">
+          <h1>NorthStar</h1>
+          <div class="subPage">
+            <a href="../Page1/home.html">HOME</a>
+            <a href="../Page2/about.html">ABOUT</a>
+            <a href="../Page3/contact1.html">CONTACT US</a>
+          </div>
+        </div>
+        <div class="auth">
+          <i class="fa-regular fa-user"></i>
+          <div class="iconCart" onclick="directCart">
+            <i class="fa-solid fa-bag-shopping"
+              ><span class="cartNo">0</span></i
+            >
+          </div>
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="path">
+        <a href="../Page1/home.html">HOME/</a>
+        <a href="" style="color: black">SHOPPING CART</a>
+      </div>
+      <div class="cartTable">
+        <table id="cartTable1"></table>
+        <div class="label">Cart Totals</div>
+        <table id="cartTable2"></table>
+        <button class="checkOut" onclick="directCheckout()">
+          PROCEED TO CHECKOUT
+        </button>
+      </div>
+      <div class="footer1">
+        <div class="ft">
+          <h5>COMPANY INFO</h5>
+          <br />
+          <span>About Us</span><br />
+          <span>Latest Posts</span><br />
+          <span>Contact Us</span><br />
+          <span>Shop</span><br />
+        </div>
+        <div class="ft">
+          <h5>HELP LINKS</h5>
+          <br />
+          <span>Tracking</span><br />
+          <span>Order Status</span><br />
+          <span>Delivery</span><br />
+          <span>Shipping Info</span><br />
+          <span>FAQ</span>
+        </div>
+        <div class="ft">
+          <h5>USEFUL LINKS</h5>
+          <br />
+          <span>Special Offers</span><br />
+          <span>Gift Cards</span><br />
+          <span>Advertising</span><br />
+          <span>Terms of Use</span>
+        </div>
+        <div class="ft">
+          <h5>GET IN THE KNOW</h5>
+          <br />
+          <input type="email" placeholder="Enter email" />
+          <hr />
+        </div>
+      </div>
+      <hr />
+      <div class="footer2">
+        <span
+          >© 2020 NorthStar eCommerce<br />Privacy Policy Terms & Conditions
+        </span>
+        <div class="icon">
+          <img src="../Page1/Photos/visa.png" alt="" />
+          <img src="../Page1/Photos/paypal.png" alt="" />
+          <img src="../Page1/Photos/mastercard.png" alt="" />
+          <img src="../Page1/Photos/visaelectron.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      let count = localStorage.getItem("totalQty");
+      let arrCart = JSON.parse(localStorage.getItem("myCart"));
+      document.querySelector("span.cartNo").innerText = count;
+
+      let strHeader = `<tr>
+              <th>Image</th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th></th>
+            </tr>`;
+      let strData = "";
+      console.log(arrCart);
+      let totalCost = 0;
+      arrCart.forEach((item) => {
+        strData += `<tr>
+              <td><img src="${item.sp.image}" alt="" /></td>
+              <td style="font-weight: bold">${item.sp.name}</td>
+              <td>$${item.sp.price}</td>
+              <td>
+                <button>-</button
+                ><input
+                  type="number"
+                  name="txtQty"
+                  id="txtQty"
+                  style="width: 2.4rem" value="${item.qty}"
+                /><button>+</button>
+              </td>
+              <td>$${item.sp.price * item.qty}</td>
+              <td>
+                <button><i class="fa-solid fa-xmark"></i></button>
+              </td>
+            </tr>`;
+        totalCost += item.sp.price * item.qty;
+      });
+      let strCost = `<tr>
+            <th>Subtotal</th>
+            <td>$${totalCost}</td>
+          </tr>
+          <tr>
+            <th>Shipping Free</th>
+            <td>FREE!!!</td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <td>$${totalCost + 0}</td>
+          </tr>`;
+      document.querySelector("#cartTable1").innerHTML = strHeader + strData;
+      document.querySelector("#cartTable2").innerHTML = strCost;
+      function directCheckout() {
+        location.href = "../Page6/checkout.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="../Page2/about.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="groupHeaderMenu">
+        <div class="logoandsubPage">
+          <h1>NorthStar</h1>
+          <div class="subPage">
+            <a href="../Page1/home.html">HOME</a>
+            <a href="../Page2/about.html" style="color: #024e82">ABOUT</a>
+            <a href="../Page3/contact1.html">CONTACT US</a>
+          </div>
+        </div>
+        <div class="auth">
+          <i class="fa-regular fa-user"></i>
+          <div class="iconCart" onclick="directCart()">
+            <i class="fa-solid fa-bag-shopping"
+              ><span class="cartNo">0</span></i
+            >
+          </div>
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topicTitle">ABOUT NORTHSTAR</div>
+      </div>
+      <div class="feature">
+        <div class="featwoman"><button>BUY NOW</button></div>
+        <div class="featman"><button>BUY NOW</button></div>
+      </div>
+      <div class="title">The Founders</div>
+      <div class="founder">
+        <div class="fd">
+          <img src="../Page2/Photos/jawad.png" alt="" />
+          <div class="namefd">HM Jawad</div>
+        </div>
+        <div class="fd">
+          <img src="../Page2/Photos/abid.png" alt="" />
+          <div class="namefd">Furqan Abid</div>
+        </div>
+        <div class="fd">
+          <img src="../Page2/Photos/ah.png" alt="" />
+          <div class="namefd">Abdullah Ah</div>
+        </div>
+        <div class="fd">
+          <img src="../Page2/Photos/khan.png" alt="" />
+          <div class="namefd">Abrar Khan</div>
+        </div>
+      </div>
+      <div class="title">Testimonials</div>
+      <div class="feedback">
+        <div class="fb">
+          <img src="../Page2/Photos/stacy.png" alt="" />
+          <div class="fb1">
+            <i class="fa-solid fa-quote-left"></i>
+            <div class="fb1a">
+              Once we ordered some accessories items and we got the products
+              delivered in our doorstep, the customer support was super helpful
+              and they answered all my queries.
+            </div>
+            <div class="sign">Stacy</div>
+          </div>
+        </div>
+        <div class="fb">
+          <img src="../Page2/Photos/tiffany.png" alt="" />
+          <div class="fb1">
+            <i class="fa-solid fa-quote-left"></i>
+            <div class="fb1a">
+              I ordered 5 shirts from them and received them in no time. The
+              customer support was awesome!
+            </div>
+            <div class="sign">Tiffany</div>
+          </div>
+        </div>
+        <div class="fb">
+          <img src="../Page2/Photos/james.png" alt="" />
+          <div class="fb1">
+            <i class="fa-solid fa-quote-left"></i>
+            <div class="fb1a">
+              I got a wrong shirt so I contacted them and they happily offered
+              me a refund. I will surely shop from them again.
+            </div>
+            <div class="sign">James</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer1">
+        <div class="ft">
+          <h5>COMPANY INFO</h5>
+          <br />
+          <span>About Us</span><br />
+          <span>Latest Posts</span><br />
+          <span>Contact Us</span><br />
+          <span>Shop</span><br />
+        </div>
+        <div class="ft">
+          <h5>HELP LINKS</h5>
+          <br />
+          <span>Tracking</span><br />
+          <span>Order Status</span><br />
+          <span>Delivery</span><br />
+          <span>Shipping Info</span><br />
+          <span>FAQ</span>
+        </div>
+        <div class="ft">
+          <h5>USEFUL LINKS</h5>
+          <br />
+          <span>Special Offers</span><br />
+          <span>Gift Cards</span><br />
+          <span>Advertising</span><br />
+          <span>Terms of Use</span>
+        </div>
+        <div class="ft">
+          <h5>GET IN THE KNOW</h5>
+          <br />
+          <input type="email" placeholder="Enter email" />
+          <hr />
+        </div>
+      </div>
+      <hr />
+      <div class="footer2">
+        <span
+          >© 2020 NorthStar eCommerce<br />Privacy Policy Terms & Conditions
+        </span>
+        <div class="icon">
+          <img src="../Page1/Photos/visa.png" alt="" />
+          <img src="../Page1/Photos/paypal.png" alt="" />
+          <img src="../Page1/Photos/mastercard.png" alt="" />
+          <img src="../Page1/Photos/visaelectron.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      function directCart() {
+        location.href = "../Page5/cart.html";
+      }
+
+      let count = localStorage.getItem("totalQty");
+      let arrCart = JSON.parse(localStorage.getItem("myCart"));
+      document.querySelector("span.cartNo").innerText = count;
+    </script>
+  </body>
+</html>
