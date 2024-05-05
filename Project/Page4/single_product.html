@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single_product</title>
+    <link rel="stylesheet" href="../Page4/single_product.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="groupHeaderMenu">
+        <div class="logoandsubPage">
+          <h1>NorthStar</h1>
+          <div class="subPage">
+            <a href="../Page1/home.html">HOME</a>
+            <a href="../Page2/about.html">ABOUT</a>
+            <a href="../Page3/contact1.html">CONTACT US</a>
+          </div>
+        </div>
+        <div class="auth">
+          <i class="fa-regular fa-user"></i>
+          <div class="iconCart" onclick="directCart()">
+            <i class="fa-solid fa-bag-shopping"
+              ><span class="cartNo">0</span></i
+            >
+          </div>
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="pd">
+        <img class="mainImg" src="../Page4/Photos/plaintshirt.png" alt="" />
+        <div class="content">
+          <div class="path">
+            <a href="../Page1/home.html">HOME/</a>
+            <a href="">SHOP/</a>
+            <a href="" class="tag" style="color: black"></a>
+          </div>
+          <div class="label">Plain T Shirt</div>
+          <div class="rate">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star halfchecked"></span>
+          </div>
+          <div class="price">$49.00</div>
+          <div class="text">
+            This is our most premium Spring Summer collection. This product is
+            made up of pure cotton and has a premium finish.
+          </div>
+          <select name="sizes" id="size-select">
+            <option value="">Select Size</option>
+            <option value="s">S - Small</option>
+            <option value="m">M - Medium</option>
+            <option value="l">L - Large</option>
+            <option value="xl">XL - Extra Large</option>
+          </select>
+          <button class="btnAddCart" onclick="addCart()">ADD TO CART</button>
+        </div>
+        </div>
+          <div>
+            <span>Category:</span><span style="color: #555555"> Casual</span
+            ><br />
+            <span>Tags:</span
+            ><span style="color: #555555"> Modern, Design, Cotton</span>
+          </div>
+        </div>
+      </div>
+      <div class="description">
+        <button>Description</button>
+        <div>
+          A key objective is engaging digital marketing customers and allowing
+          them to interact with the brand through servicing and delivery of
+          digital media. Information is easy to access at a fast rate through
+          the use of digital communications. <br /><br />Users with access to
+          the Internet can use many digital mediums, such as Facebook, YouTube,
+          Forums, and Email etc. Through Digital communications it creates a
+          Multi-communication channel where information can be quickly exchanged
+          around the world by anyone without any regard to whom they are.[28]
+          Social segregation plays no part through social mediums due to lack of
+          face to face communication and information being wide spread instead
+          to a selective audience.
+        </div>
+      </div>
+      <div class="footer1">
+        <div class="ft">
+          <h5>COMPANY INFO</h5>
+          <br />
+          <span>About Us</span><br />
+          <span>Latest Posts</span><br />
+          <span>Contact Us</span><br />
+          <span>Shop</span><br />
+        </div>
+        <div class="ft">
+          <h5>HELP LINKS</h5>
+          <br />
+          <span>Tracking</span><br />
+          <span>Order Status</span><br />
+          <span>Delivery</span><br />
+          <span>Shipping Info</span><br />
+          <span>FAQ</span>
+        </div>
+        <div class="ft">
+          <h5>USEFUL LINKS</h5>
+          <br />
+          <span>Special Offers</span><br />
+          <span>Gift Cards</span><br />
+          <span>Advertising</span><br />
+          <span>Terms of Use</span>
+        </div>
+        <div class="ft">
+          <h5>GET IN THE KNOW</h5>
+          <br />
+          <input type="email" placeholder="Enter email" />
+          <hr />
+        </div>
+      </div>
+      <hr />
+      <div class="footer2">
+        <span
+          >© 2020 NorthStar eCommerce<br />Privacy Policy Terms & Conditions
+        </span>
+        <div class="icon">
+          <img src="../Page1/Photos/visa.png" alt="" />
+          <img src="../Page1/Photos/paypal.png" alt="" />
+          <img src="../Page1/Photos/mastercard.png" alt="" />
+          <img src="../Page1/Photos/visaelectron.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="../Page5/directCart.js"></script>
+    <script>
+      recountTotalQty();
+      let objSP = JSON.parse(localStorage.getItem("product"));
+      document.querySelector("img.mainImg").src = objSP.image;
+      document.querySelector("a.tag").innerHTML = objSP.id;
+      document.querySelector("div.label").innerHTML = objSP.name;
+      document.querySelector("div.price").innerHTML = `$${objSP.price}`;
+
+    function addCart() {
+        let objSP = JSON.parse(localStorage.getItem("product"));
+        let arrCart = localStorage.getItem("myCart");
+        if (arrCart == null) {
+          arrCart = [];
+        } else {
+          arrCart = JSON.parse(localStorage.getItem("myCart"));
+        }
+        var item;
+        var qtyItem = 0;
+        var flag = false;
+
+        for (let i = 0; i < arrCart.length; i++) {
+          if (arrCart[i].sp.id == objSP.id) {
+            arrCart[i].qty++;
+            flag = true;
+            break;
+          }
+        }
+        if (flag == false) {
+          let cartItem = { sp: objSP, qty: 1 };
+          arrCart.push(cartItem);
+        }
+
+        let count = localStorage.getItem("totalQty");
+        if (count == null) {
+          count = 0;
+        }
+        count++;
+        document.querySelector("span.cartNo").innerText = count;
+
+        localStorage.setItem("totalQty", count + "");
+        localStorage.setItem("myCart", JSON.stringify(arrCart));
+}
+    </script>
+    
+  </body>
+</html>

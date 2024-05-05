@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div.container {
+  max-width: 1366px;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.groupHeaderMenu {
+  background-color: white;
+  height: 4.845rem;
+  width: 100%;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+div.groupHeaderMenu div.logoandsubPage {
+  width: 50%;
+  display: flex;
+  padding: 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.groupHeaderMenu div.auth {
+  width: 50%;
+  padding: 0 2rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+div.groupHeaderMenu div.auth div.iconCart {
+  color: black;
+  position: relative;
+}
+
+div.groupHeaderMenu div.auth div.iconCart span {
+  position: absolute;
+  background-color: red;
+  font-size: 0.875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  top: 50%;
+  right: -0.875rem;
+}
+
+div.groupHeaderMenu div.auth i {
+  cursor: pointer;
+}
+
+div.groupHeaderMenu div.auth i:hover {
+  color: #024e82;
+}
+
+div.groupHeaderMenu div.logoandsubPage h1 {
+  color: black;
+  font-size: 2.6rem;
+  font-weight: regular;
+}
+
+div.groupHeaderMenu div.logoandsubPage div.subPage {
+  width: 15.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.groupHeaderMenu div.logoandsubPage div.subPage a {
+  color: black;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+div.groupHeaderMenu div.logoandsubPage div.subPage a:hover {
+  color: #024e82;
+}
+
+div.path {
+  margin: 2.5rem 2rem;
+}
+
+div.path a {
+  font-size: 0.937rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #555555;
+}
+
+div.info {
+  margin: 2.5rem 2rem;
+}
+
+div.info div.label {
+  margin: 2.5rem 0 1rem 0;
+  color: black;
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+
+div.info form label {
+  font-size: 1rem;
+  color: #555555;
+  margin-top: 1.5rem;
+}
+
+div.info form input {
+  width: 50%;
+  height: 3rem;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #555555;
+}
+
+div.info table {
+  width: 100%;
+  font-size: 1rem;
+}
+
+div.info table th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+div.info div.cash {
+  margin-top: 2.5rem;
+  padding: 1.562rem;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+div.info div.cash div.note {
+  padding: 2rem 1rem;
+  margin-bottom: 1.562rem;
+  width: 100%;
+  height: 4.825rem;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  color: #555555;
+  background-color: #ebebeb;
+}
+
+div.info div.cash button {
+  width: 10.375rem;
+  height: 3rem;
+  background-color: #d6763c;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* CSS nền hiển thị Modal */
+div.nenmodal div.nenmodal2 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: none;
+}
+/* CSS bảng nội dung Modal */
+div.nenmodal div.ndmodal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: #d6763c;
+  width: 37.5rem;
+  z-index: 2;
+  text-align: center;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 20px;
+  display: block;
+  position: fixed;
+  box-shadow: 0 0 0.625rem #111;
+}
+@media (max-width: 700px) {
+  div.nenmodal div.ndmodal {
+    width: 90%;
+  }
+}
+/* CSS bao bọc của nút tắt Modal */
+div.nenmodal div.closemodal {
+  text-align: center;
+  margin-top: -2.5rem;
+  margin-bottom: 0.625rem;
+}
+/* CSS tieu de của Modal */
+div.titlemodal {
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 0.625rem;
+}
+/* CSS nút tắt modal */
+div.closemodal button {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.875rem;
+  padding: 0;
+  border-radius: 100%;
+  background: #333;
+  color: #fff;
+  border: none;
+}
+div.nenmodal.active div.nenmodal2 {
+  display: block;
+}
+/* CSS hiệu ứng hiển thị Modal */
+div.nenmodal.active div.ndmodal {
+  transition: all 300ms ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+div.footer1 {
+  margin: 3rem 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.footer1 div.ft input {
+  border: none;
+  color: #555555;
+}
+
+div.footer2 {
+  margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.footer2 span {
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+
+div.footer2 div.icon img {
+  margin: 0 1rem;
+}
