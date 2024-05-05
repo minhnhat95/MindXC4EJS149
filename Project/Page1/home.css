@@ -204,6 +204,10 @@ div.pd button.btnAddCart {
   cursor: pointer;
 }
 
+div.pd button.btnAddCart:hover {
+  background-color:#c98715;
+}
+
 div.benefit {
   display: flex;
   justify-content: space-between;

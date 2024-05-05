@@ -60,9 +60,7 @@
         <table id="bill"></table>
         <table id="totalBill"></table>
         <div class="cash">
-          <div class="note">
-            Cash on delivery. Please contact us if you require assistance or
-            wish to make alternate arrangements.
+          <div class="note" id="note">
           </div>
           <button onclick="momodal()">PLACE ORDER</button>
         </div>
@@ -124,6 +122,14 @@
     </div>
     <script>
       function momodal() {
+        if (document.getElementById("nenmodal-1").classList.contains("active")) {
+          document.querySelector("#bill").innerHTML = "";
+          document.querySelector("#totalBill").innerHTML = "";
+          document.querySelector("#note").innerHTML = `Your order is on delivery. Please contact us if you require assistance or wish to make alternate arrangements.`;
+          localStorage.setItem("totalQty", "0");
+          localStorage.setItem("myCart", "\[\]");
+          document.querySelector("span.cartNo").innerText = 0;
+        }
         document.getElementById("nenmodal-1").classList.toggle("active");
       }
 
@@ -158,6 +164,7 @@
             </tr>`;
       document.querySelector("#bill").innerHTML = strHeader + strData;
       document.querySelector("#totalBill").innerHTML = strTotal;
+      document.querySelector("#note").innerHTML = "Make sure your billing details are correct before placing order.";
     </script>
   </body>
 </html>

@@ -66,7 +66,7 @@
             <option value="l">L - Large</option>
             <option value="xl">XL - Extra Large</option>
           </select>
-          <button class="btnAddCart" >ADD TO CART</button>
+          <button onclick="addCart()" class="btnAddCart" >ADD TO CART</button>
         </div>
         </div>
           <div>
@@ -139,16 +139,48 @@
         </div>
       </div>
     </div>
+    <script src="../Page5/directCart.js"></script>
     <script>
+      recountTotalQty();
       let objSP = JSON.parse(localStorage.getItem("product"));
       document.querySelector("img.mainImg").src = objSP.image;
       document.querySelector("a.tag").innerHTML = objSP.id;
       document.querySelector("div.label").innerHTML = objSP.name;
       document.querySelector("div.price").innerHTML = `$${objSP.price}`;
 
+      function addCart() {
+        let objSP = JSON.parse(localStorage.getItem("product"));
+        let arrCart = localStorage.getItem("myCart");
+        if (arrCart == null) {
+          arrCart = [];
+        } else {
+          arrCart = JSON.parse(localStorage.getItem("myCart"));
+        }
+        var item;
+        var qtyItem = 0;
+        var flag = false;
 
-      function directCart() {
-        location.href = "../Page5/cart.html";
+        for (let i = 0; i < arrCart.length; i++) {
+          if (arrCart[i].sp.id == objSP.id) {
+            arrCart[i].qty++;
+            flag = true;
+            break;
+          }
+        }
+        if (flag == false) {
+          let cartItem = { sp: objSP, qty: 1 };
+          arrCart.push(cartItem);
+        }
+
+        let count = localStorage.getItem("totalQty");
+        if (count == null) {
+          count = 0;
+        }
+        count++;
+        document.querySelector("span.cartNo").innerText = count;
+
+        localStorage.setItem("totalQty", count + "");
+        localStorage.setItem("myCart", JSON.stringify(arrCart));
       }
     </script>
   </body>

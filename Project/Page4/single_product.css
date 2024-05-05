@@ -156,6 +156,10 @@ div.pd div.content button {
   cursor: pointer;
 }
 
+div.pd div.content button:hover {
+  background-color:#c98715;
+}
+
 div.pd div.content div {
   font-size: 0.875rem;
   line-height: 1.5rem;

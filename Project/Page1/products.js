@@ -91,7 +91,7 @@ for (let i = 8; i < products.length; i++) {
   str2 += `<div class="pd">
           <img src="${products[i].image}" alt="" />
           <button class="label" onclick=\'showDetail(\`${obj}\`)\'>${products[i].name}</button>
-          <div class="price">$${products[i].price}</div> 
+          <div class="price">$${products[i].price}</div>
           <button class="btnAddCart" onclick=\'addCart(\`${obj}\`)\'>ADD TO CART</button>
         </div>`;
 }
@@ -139,7 +139,6 @@ function addCart(objSP) {
 
 function showDetail(objSP) {
   console.log(objSP);
-  window.localStorage.clear();
   window.localStorage.setItem("product", objSP);
   location.href = "../Page4/single_product.html";
 }

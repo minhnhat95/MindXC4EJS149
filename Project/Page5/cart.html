@@ -92,6 +92,8 @@
         </div>
       </div>
     </div>
+    <script src="../Page5/cart.js"></script>
+    <script src="../Page5/directCart.js"></script>
     <script>
       let count = localStorage.getItem("totalQty");
       let arrCart = JSON.parse(localStorage.getItem("myCart"));
@@ -108,23 +110,23 @@
       let strData = "";
       console.log(arrCart);
       let totalCost = 0;
-      arrCart.forEach((item) => {
+      arrCart.forEach((item, index) => {
         strData += `<tr>
               <td><img src="${item.sp.image}" alt="" /></td>
               <td style="font-weight: bold">${item.sp.name}</td>
               <td>$${item.sp.price}</td>
               <td>
-                <button>-</button
+                <button onclick="decreaseQty(${index})">-</button
                 ><input
                   type="number"
                   name="txtQty"
                   id="txtQty"
                   style="width: 2.4rem" value="${item.qty}"
-                /><button>+</button>
+                /><button onclick="increaseQty(${index})" >+</button>
               </td>
               <td>$${item.sp.price * item.qty}</td>
               <td>
-                <button><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="removeItem(${index})"><i class="fa-solid fa-xmark"></i></button>
               </td>
             </tr>`;
         totalCost += item.sp.price * item.qty;
@@ -134,8 +136,16 @@
             <td>$${totalCost}</td>
           </tr>
           <tr>
-            <th>Shipping Free</th>
-            <td>FREE!!!</td>
+            <th>Shipping Fee</th>
+            <td>${
+              totalCost > 100
+                ? "Free!!!"
+                : totalCost > 50
+                ? "$5"
+                : totalCost > 0
+                ? "$10"
+                : "$0"
+            }</td>
           </tr>
           <tr>
             <th>Total</th>
@@ -146,6 +156,7 @@
       function directCheckout() {
         location.href = "../Page6/checkout.html";
       }
+      recountTotalQty();
     </script>
   </body>
 </html>
